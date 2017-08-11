@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tripio</title>
+
+
+	<!-- Bootstrap File -->
+	<link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Firebase Reference -->
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<!-- local js -->
+	<script type="text/javascript" src="assets/javascript/sha256.js">
+	</script>
+	<!--D3--> -->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+
+
+</head>
+<body>
+	
+<div class="container">
+		<!-- Jumbotron with Title -->
+	<div class="jumbotron">
+		<h1 class="text-center" id="JTtitle">trip.io</h1>
+		<h3 id="catchphrase" class="text-center">Simple trip planning to choose your destination <span class="glyphicon glyphicon-plane"></span></h3>
+		<p id="lastUpdate"></p>
+	</div> <!-- jumbotron class -->
+	
+	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->
+	    
+	    <div class="col-lg-4" id="leftcol"><!--column for input --> 
+	    <Label><h2>Starting Zip Code</h2></Label></br>
+	    <input type="text" pattern="[0-9]{5}" title="Five digit zip code" /></br>
+		<Label><h2>Destination Zip Code</h2></Label></br>
+	    <input type="text" pattern="[0-9]{5}" title="Five digit zip code" /></br>
+	    <Label><h2>Departure Date</h2></Label></br>
+		<input type="date" name="bday"></br>
+	    <Label><h2>Return Date</h2></Label></br>
+		<input type="date" name="bday"></br>
+	    </div><!--column for input--> 
+		
+		<div class="col-lg-7" id="rightcol"><!--col for results and buttons --> 
+			
+			<div class="row" id="optionrow"><!--column for buttons-->
+			    <button class="btn btn-default OPTION" id="Amazon-cent-btn"><h3>Airfare</h3><p>cheapest takeoff <br>8am to 8pm</p></button>
+			    <button class="btn btn-default OPTION" id="Walmart-cent-btn"><h3>Car Rental</h3><p>cheapest 2 star hotel</p></button>
+			    <button class="btn btn-default OPTION" id="Amazon-cent-btn"><h3>Hotel</h3><p>cheapest 4 door sedan</p></button>
+			</div>
+			<div class="row" id="resultrow"><!--row for results-->	
+				<div class="panel panel-default" id="results-panel"><!--panel for breakdown AMAZON--> 
+			    	<div class="panel-heading" id="results-heading">Results!</div>
+	  				<div class="panel-body" id="results-body">
+					Your total for your trip from city to city for number days will cost approximately: 
+					<h1>$$44444</h1>
+	  				</div>		    	
+			    </div><!--panel for breakdown default-->  
+			</div><!--row for results--> 	
+		
+		</div><!--col for results and buttons --> 
+	
+	</div><!-- post-jumbotron giant row for main columns -->
+
+
+	<footer class="footer text-right">
+    <p>&copy; Anastasia Mark, James Webber, and Jon Christensen 2017</p>
+    </footer>
+
+<script>
+</script>
+
+</body>
+</html>

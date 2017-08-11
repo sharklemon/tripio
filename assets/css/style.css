@@ -1,0 +1,86 @@
+*{}
+
+body{
+	background-color: 0;
+    background-image: url('../images/background.jpeg');
+    background-size: 100%;
+
+}
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.jumbotron{
+	background-color: rgba(255,255,255,0);
+	color:rgb(79,100,102);
+	font-family: 'Nunito', sans-serif;
+	padding: 10px;
+}
+
+#maincolsrow{
+
+}
+
+div{}
+
+#img-col{
+	background-color: rgba(255,255,255,0.7);
+	height:600px;
+	padding: 20px;
+	margin:15px;
+}
+
+#image-panel{
+	border-color: rgb(250,208,252);
+}
+#image-panel-heading{
+	background-color: rgb(250,208,252);
+	color:rgb(46,48,67);
+	font-weight: bold;
+}
+.itemIMG{
+	height:6.5vw;
+}
+
+
+#rightcol{
+	background-color: rgba(255,255,255,0.7);
+	padding: 40px;
+	margin:15px;
+}
+
+.OPTION{
+	background-color: rgb(123,166,145);
+	border: 0;
+	white-space: normal;
+	width:180px;
+	height:160px;
+}
+
+panel-heading{}
+panel-boy{}
+#results-panel{
+	margin:30px;
+}
+#results-heaing{
+	border:2px rgb(79,100,102);
+}
+#results-body{
+	border:2px;
+	border-color: rgb(79,100,102);
+
+}
+
+.axis path {
+            fill: none;
+            stroke: #777;
+            shape-rendering: crispEdges;
+        }
+        .axis text {
+            font-family: Lato;
+            font-size: 13px;
+        }
