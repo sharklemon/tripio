@@ -1,7 +1,7 @@
 var car = [201];
 var hotel = [80];
 var airfare = [400];
-var dates = ["Trip Costs"];
+var labels = ["Trip Costs"];
 
 function createChartTest() {
 
@@ -9,7 +9,7 @@ function createChartTest() {
 	var myChart = new Chart(ctx, {
 	    type: 'horizontalBar',
 	    data: {
-	        labels: dates,
+	        labels: labels,
 	        datasets: [
 	            {
             		label: 'Car',
@@ -40,10 +40,16 @@ function createChartTest() {
     	options: {
 	        scales: {
 	            xAxes: [{
-	                stacked: true
+	                stacked: true,
+	                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
 	            }],
 	            yAxes: [{
-	                stacked: true
+	                stacked: true,
+	                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
 	            }]
 	        }
     }

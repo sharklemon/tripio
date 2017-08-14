@@ -1,7 +1,7 @@
 *{}
 
 body{
-	background-color: 0;
+	background-color: rgb(218,226,227);
     background-image: url('../images/background.jpeg');
     background-size: 100%;
 
@@ -27,38 +27,29 @@ body{
 
 div{}
 
-#img-col{
-	background-color: rgba(255,255,255,0.7);
-	height:600px;
-	padding: 20px;
-	margin:15px;
-}
-
-#image-panel{
-	border-color: rgb(250,208,252);
-}
-#image-panel-heading{
-	background-color: rgb(250,208,252);
-	color:rgb(46,48,67);
-	font-weight: bold;
-}
-.itemIMG{
-	height:6.5vw;
+.panel-default{
+	background-image: url('../images/tag.png');	
+    background-size:800px;
+    background-color: rgba(255,255,255,0.0);
+    border:0px;
+    padding:0 0 0 70px;
 }
 
 
 #rightcol{
-	background-color: rgba(255,255,255,0.7);
-	padding: 40px;
-	margin:15px;
+	background-color: rgba(255,255,255,0);
+	border: 0px;
+	padding: 0 10px 0 10px;
+	margin:0 15px 0 15px;
 }
 
 .OPTION{
 	background-color: rgb(123,166,145);
 	border: 0;
-	white-space: normal;
 	width:180px;
-	height:120px;
+	height:100px;
+	padding: 0px;
+	margin:10px 5px 10px 5px;
 }
 
 .Submit{
@@ -71,27 +62,15 @@ div{}
 	margin: 30px 0 0 0;
 }
 
-panel-heading{}
-panel-boy{}
-
-#results-panel{
-	margin:30px;
-}
-#results-heaing{
+.panel-default > .panel-heading{
 	border:2px rgb(79,100,102);
+	margin: 0 0 10px 0;
+	background-color: rgba(255,255,255,0.4);
+	font-weight:bold;
+	font-size: 20px;	
+	margin: 0 50px;
 }
 #results-body{
-	border:2px;
-	border-color: rgb(79,100,102);
-
+	border:0px;
+	background: 0;
 }
-
-.axis path {
-            fill: none;
-            stroke: #777;
-            shape-rendering: crispEdges;
-        }
-        .axis text {
-            font-family: Lato;
-            font-size: 13px;
-        }
