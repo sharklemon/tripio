@@ -13,13 +13,14 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-	<!--D3-->
+	<!--D3--> -->
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<!---chart.js-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"> </script>	
 	<!-- local js -->
 	<script type="text/javascript" src="assets/javascript/app.js">
 	</script>
+	<script type="text/javascript" src="assets/javascript/chart.js"></script>
 
 </head>
 <body>
@@ -28,13 +29,13 @@
 		<!-- Jumbotron with Title -->
 	<div class="jumbotron">
 		<h1 class="text-center" id="JTtitle">trip.io</h1>
-		<h3 id="catchphrase" class="text-center">Simple trip planning to choose your destination <span class="glyphicon gly-spin glyphicon-plane"></span></h3>
+		<h3 id="catchphrase" class="text-center">Simple trip planning to choose your destination <span class="glyphicon glyphicon-plane"></span></h3>
 		<p id="lastUpdate"></p>
 	</div> <!-- jumbotron class -->
 	
 	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->
 	    
-	    <div class="col-lg-4 text-right" id="leftcol"><!--column for input --> 
+	    <div class="col-lg-4" id="leftcol"><!--column for input --> 
 		    <Label><h2>Starting Zip Code</h2></Label></br>
 		    <input id="home" type="text" title="Five digit zip code" /></br>
 			<Label><h2>Destination Zip Code</h2></Label></br>
@@ -43,34 +44,30 @@
 			<input id="date" type="text" name="bday"></br>
 		    <Label><h2>Return Date</h2></Label></br>
 			<input type="date" name="bday"></br>
+			<button class="btn btn-default Submit" id="submit">Submit!</button>
 	    </div><!--column for input--> 
 		
 		<div class="col-lg-7" id="rightcol"><!--col for results and buttons --> 
-			<button class="btn btn-default OPTION" id="Cheapo-cent-btn"><h3>Cheapo</h3><p>cheapest options</p></button>
-		    <button class="btn btn-default OPTION" id="Middler-cent-btn"><h3>Mid Range</h3><p>mid range search</p></button>
-		    <button class="btn btn-default OPTION" id="MadCash-cent-btn"><h3>Mad Cash</h3><p>luxury trip</p></button>			
-			<div class="panel-heading" id="choose-heading">Click on your price option above to submit your search</div>	
-			<div class="panel panel-default" id="results-panel"><!--panel for results based on their input--> 
-  				<div class="panel-heading" id="results-heading">Results for this search</div>	
-  				<div class="panel-body" id="results-body">
-				Your total for your trip from city to city for number days will cost approximately: 
-				<h1 id="price">$$44444</h1><br>
-				<p id="costLevel">cheapest car is compact
-				cheapest hotel is 1 star
-				cheapest flight has a 5 hour layover</p>
-  				</div>
-			</div><!--panel for results based on their input--> 
-
-			<div class="panel panel-default" id="results-panel"><!--panel for comparison of itineraries--> 			
-  				<div class="panel-heading" id="compare-heading">Price Comparisons</div>	
-				<div class="panel-body" id="compare-body">
-				<button class="btn btn-default PrCompare" id="dEarly">Depart early</button>	
-				<button class="btn btn-default PrCompare" id="rLate">Return late</button>
-				<button class="btn btn-default PrCompare" id="eTrip">Extended Trip</button>
-				<button class="btn btn-default PrCompare" id="NWeek">Next Week</button>
-  				<canvas id="income" width="600" height="120"></canvas>
-  				</div>
-		    </div><!--panel for comparison of itineraries-->  
+			
+			<div class="row" id="optionrow"><!--column for buttons-->
+			    <button class="btn btn-default OPTION" id="Cheapo-cent-btn"><h3>Cheapo</h3><p>cheapest options</p></button>
+			    <button class="btn btn-default OPTION" id="Middler-cent-btn"><h3>Mid Range</h3><p>mid range search</p></button>
+			    <button class="btn btn-default OPTION" id="MadCash-cent-btn"><h3>Mad Cash</h3><p>luxury trip</p></button>
+			</div>
+			<div class="row" id="resultrow"><!--row for results-->	
+				<div class="panel panel-default" id="results-panel"><!--panel for breakdown AMAZON--> 
+	  				<div class="panel-body" id="results-body">
+					Your total for your trip from city to city for number days will cost approximately: 
+					<h1>$$44444</h1><br>
+					cheapest car is compact
+					cheapest hotel is 1 star
+					cheapest flight has a 5 hour layover
+	  				</div>
+	  				<div class="panel-heading" id="results-heading">Price Comparisons</div>	
+	  				<canvas id="income" width="600" height="120"></canvas>
+			    </div><!--panel for breakdown default-->  
+			</div><!--row for results--> 	
+		
 		</div><!--col for results and buttons --> 
 	
 	</div><!-- post-jumbotron giant row for main columns -->
