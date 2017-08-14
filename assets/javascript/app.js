@@ -1,5 +1,7 @@
+$(document).ready(function() {
+
 // these vars will equal to whatever we pull from the form; the JSON object right now has placeholder origins, destinations, and dates
-var origin;
+var home;
 var destination;
 var date;
 
@@ -12,10 +14,10 @@ var FlightRequest = {
             },
         "slice": [
             {
-            "kind": "qpxexpress#sliceInput",
-            "origin": "DCA",
-            "destination": "LAX",
-            "date": "2017-08-14"
+
+            "origin": home,
+            "destination": destination,
+            "date": date
     
             }
         ],
@@ -24,18 +26,43 @@ var FlightRequest = {
 
 };
 
-$.ajax({
+$("#submit").on("click", function() {
 
-    type: "POST",
-    url: "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB0y0LKck7gyTlGvcsuqtPrmQBS4_BBhGA", 
-    contentType: "application/json", 
-    dataType: "json",
-    data: JSON.stringify(FlightRequest),
-    success: function (response) {
+    event.preventDefault();
 
-    // console.logging so i don't forget how to find what we really need from the ajax
-    console.log(response.trips.tripOption[0].pricing[0].baseFareTotal);
+    console.log("Pushed");
 
-    }
+    home = $("#home").val().trim();
+    destination = $("#destination").val().trim();
+    date = $("#date").val().trim();
 
-    });
+    console.log(home);
+    console.log(destination);
+    console.log(date);
+
+    FlightRequest.request.slice[0].origin = home;
+    FlightRequest.request.slice[0].destination = destination;
+    FlightRequest.request.slice[0].date = date;
+
+
+    $.ajax({
+
+        type: "POST",
+        url: "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyAMQGw6Z-4MykrHYhlIE191XnPEe85ACvE", 
+        contentType: "application/json", 
+        dataType: "json",
+        data: JSON.stringify(FlightRequest),
+        success: function (response) {
+
+        // console.logging so i don't forget how to find what we really need from the ajax
+        console.log(response);
+
+        }
+
+        });
+
+    console.log(FlightRequest);
+
+});
+
+});
