@@ -34,22 +34,23 @@
 	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->
 	    
 	    <div class="col-lg-4" id="leftcol"><!--column for input --> 
-	    <Label><h2>Starting Zip Code</h2></Label></br>
-	    <input type="text" pattern="[0-9]{5}" title="Five digit zip code" /></br>
-		<Label><h2>Destination Zip Code</h2></Label></br>
-	    <input type="text" pattern="[0-9]{5}" title="Five digit zip code" /></br>
-	    <Label><h2>Departure Date</h2></Label></br>
-		<input type="date" name="bday"></br>
-	    <Label><h2>Return Date</h2></Label></br>
-		<input type="date" name="bday"></br>
+		    <Label><h2>Starting Zip Code</h2></Label></br>
+		    <input type="text" pattern="[0-9]{5}" title="Five digit zip code" /></br>
+			<Label><h2>Destination Zip Code</h2></Label></br>
+		    <input type="text" pattern="[0-9]{5}" title="Five digit zip code" /></br>
+		    <Label><h2>Departure Date</h2></Label></br>
+			<input type="date" name="bday"></br>
+		    <Label><h2>Return Date</h2></Label></br>
+			<input type="date" name="bday"></br>
+			<button class="btn btn-default Submit" id="Cheapo-cent-btn">Submit!</button>
 	    </div><!--column for input--> 
 		
 		<div class="col-lg-7" id="rightcol"><!--col for results and buttons --> 
 			
 			<div class="row" id="optionrow"><!--column for buttons-->
-			    <button class="btn btn-default OPTION" id="Amazon-cent-btn"><h3>Airfare</h3><p>cheapest takeoff <br>8am to 8pm</p></button>
-			    <button class="btn btn-default OPTION" id="Walmart-cent-btn"><h3>Car Rental</h3><p>cheapest 2 star hotel</p></button>
-			    <button class="btn btn-default OPTION" id="Amazon-cent-btn"><h3>Hotel</h3><p>cheapest 4 door sedan</p></button>
+			    <button class="btn btn-default OPTION" id="Cheapo-cent-btn"><h3>Cheapo</h3><p>cheapest options</p></button>
+			    <button class="btn btn-default OPTION" id="Middler-cent-btn"><h3>Mid Range</h3><p>mid range search</p></button>
+			    <button class="btn btn-default OPTION" id="MadCash-cent-btn"><h3>Mad Cash</h3><p>luxury trip</p></button>
 			</div>
 			<div class="row" id="resultrow"><!--row for results-->	
 				<div class="panel panel-default" id="results-panel"><!--panel for breakdown AMAZON--> 
@@ -57,6 +58,9 @@
 	  				<div class="panel-body" id="results-body">
 					Your total for your trip from city to city for number days will cost approximately: 
 					<h1>$$44444</h1>
+					cheapest car is compact
+					cheapest hotel is 1 star
+					cheapest flight has a 5 hour layover
 	  				</div>		    	
 			    </div><!--panel for breakdown default-->  
 			</div><!--row for results--> 	
