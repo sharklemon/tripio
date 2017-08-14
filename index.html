@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 	<!-- JQuery -->
-	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<!--D3--> -->
@@ -41,9 +41,9 @@
 			<Label><h2>Enter the IATA code of your arrival</h2></Label></br>
 		    <input id="destination" type="text" title="arrival" /></br>
 		    <Label><h2>Departure Date</h2></Label></br>
-			<input id="startdate" type="text" name="bday"></br>
+			<input id="startdate" type="date" name="bday"></br>
 		    <Label><h2>Return Date</h2></Label></br>
-			<input id="returndate" type="text" name="bday"></br>
+			<input id="returndate" type="date" name="bday"></br>
 			<button class="btn btn-default Submit" id="submit">Submit!</button>
 	    </div><!--column for input--> 
 		
@@ -58,7 +58,7 @@
 				<div class="panel panel-default" id="results-panel"><!--panel for breakdown AMAZON--> 
 	  				<div class="panel-body" id="results-body">
 					Your total for your trip from city to city for number days will cost approximately: 
-					<h1>$$44444</h1><br>
+					<h1 id="totalPrice">$$44444</h1><br>
 					cheapest car is compact
 					cheapest hotel is 1 star
 					cheapest flight has a 5 hour layover
