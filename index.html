@@ -10,17 +10,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 	<!-- JQuery -->
-	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-	<!--D3--> -->
+	<!--D3-->
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<!---chart.js-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"> </script>	
 	<!-- local js -->
 	<script type="text/javascript" src="assets/javascript/app.js">
 	</script>
-	<script type="text/javascript" src="assets/javascript/chart.js"></script>
+<!-- 	<script type="text/javascript" src="assets/javascript/chart.js"></script> -->
 
 </head>
 <body>
@@ -35,15 +35,15 @@
 	
 	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->
 	    
-	    <div class="col-lg-4 text-right" id="leftcol"><!--column for input --> 
-		    <Label><h2>Starting Zip Code</h2></Label></br>
-		    <input id="home" type="text" title="Five digit zip code" /></br>
-			<Label><h2>Destination Zip Code</h2></Label></br>
-		    <input id="destination" type="text" title="Five digit zip code" /></br>
-		    <Label><h2>Departure Date</h2></Label></br>
-			<input id="date" type="text" name="bday"></br>
-		    <Label><h2>Return Date</h2></Label></br>
-			<input type="date" name="bday"></br>
+	    <div class="col-lg-4" id="leftcol"><!--column for input --> 
+		    <Label><h2>From....(enter the IATA code of where you are starting)</h2></Label></br>
+			<input id="home" type='text' title='home'>
+			<Label><h2>To....(enter the IATA code of where you are going)</h2></Label></br>
+			<input id="destination" type="text" title="arrival" /></br>
+			<Label><h2>Departure Date</h2></Label></br>
+			<input id="startdate" type="date" name="bday"></br>
+			<Label><h2>Return Date</h2></Label></br>
+			<input id="returndate" type="date" name="bday"></br>
 	    </div><!--column for input--> 
 		
 		<div class="col-lg-7" id="rightcol"><!--col for results and buttons --> 
@@ -55,7 +55,7 @@
   				<div class="panel-heading" id="results-heading">Results for this search</div>	
   				<div class="panel-body" id="results-body">
 				Your total for your trip from city to city for number days will cost approximately: 
-				<h1 id="price">$$44444</h1><br>
+				<h1 id="totalPrice">$$44444</h1><br>
 				<p id="costLevel">cheapest car is compact
 				cheapest hotel is 1 star
 				cheapest flight has a 5 hour layover</p>
