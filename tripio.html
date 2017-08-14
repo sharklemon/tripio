@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>
+		Trip.io test
+	</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<h1 id="Price"></h1>
+	<h2 id="Location"></h2>
+
+</body>
+<script>
+
+var destination = "LAX";
+var startdate = "09/20/2017";
+var enddate = "09/23/2017";
+var pickuptime = "10:00";
+var dropofftime = "19:00";
+
+var apiKey = "apikey=" + "qwjnwktsp5td59nb8z3n3qeg";
+var format = "&format=" + "JSON";
+var URLdest = "&dest=" + destination;
+var URLstart = "&startdate=" + startdate;
+var URLend = "&enddate=" + enddate;
+var URLpickup = "&pickuptime=" + pickuptime;
+var URLdropoff = "&dropofftime=" + dropofftime;
+
+queryURL = "https://api.hotwire.com/v1/search/car?" + apiKey + format + URLdest + URLstart + URLend + URLpickup + URLdropoff + "&includeResultsLink=true";
+
+console.log(queryURL);
+
+$.ajax({
+
+	url: queryURL,
+	method: "GET",
+	//contentType: "application/json", 
+    //dataType: "json",
+    //data: JSON.stringify(resposne)
+
+}).done(function(response) {
+
+	console.log(response);
+
+
+});
+
+
+</script>
+</html>
