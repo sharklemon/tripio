@@ -1,9 +1,13 @@
+
+
 $(document).ready(function() {
 
 // these vars will equal to whatever we pull from the form; the JSON object right now has placeholder origins, destinations, and dates
 var home;
 var destination;
-var date;
+var startdate;
+var enddate;
+var pickup;
 
 // the JSON object for the ajax call, there's some room to make some modifications (number of adults/kids, number of results, max price, nonstop or not, etc)
 var FlightRequest = {
@@ -17,7 +21,8 @@ var FlightRequest = {
 
             "origin": home,
             "destination": destination,
-            "date": date
+            "startdate": startdate,
+            "returndate": returndate
     
             }
         ],
@@ -34,15 +39,20 @@ $("#submit").on("click", function() {
 
     home = $("#home").val().trim();
     destination = $("#destination").val().trim();
-    date = $("#date").val().trim();
+    startdate = $("#startdate").val().trim();
+    returndate = $("#returndate").val().trim();
 
     console.log(home);
     console.log(destination);
-    console.log(date);
+    console.log(startdate);
+    console.log(returndate);
+
+    ////FLIGHT SEARCH WITH QPX
 
     FlightRequest.request.slice[0].origin = home;
     FlightRequest.request.slice[0].destination = destination;
-    FlightRequest.request.slice[0].date = date;
+    FlightRequest.request.slice[0].date = startdate;
+    FlightRequest.request.slice[0].date = startdate;
 
 
     $.ajax({
@@ -62,6 +72,68 @@ $("#submit").on("click", function() {
         });
 
     console.log(FlightRequest);
+
+    ////CAR RENTAL SEARCH WITH HOTWIRE
+    //FOR NOW, JUST ASSUMING THE SAME START/END DATES AS THE FLIGHTS AT NOON
+    //TO UPDATE WITH NEW START END DATES & TIMES BASED ON FLIGHT TIMES
+
+    //car API key for Hotwire.com API
+    var carAPIkey = "qwjnwktsp5td59nb8z3n3qeg";
+    
+    var carURL = "http://hotwire.herokuapp.com/v1/search/car?" 
+        + "apikey=" + carAPIkey 
+        + "&format=" + "JSON" 
+        + "&dest=" + destination
+        + "&startdate=" + startdate
+        + "&enddate=" + enddate
+        + "&pickuptime=" + "12:00"
+        + "&dropofftime=" + "12:00";
+
+    console.log("Hotwire Car URL:", carURL);
+
+    //AJAX for car rental
+    $.ajax({
+        url: carURL,
+        method: "GET",
+        dataTYpe: "json"
+    }).done(function(carResponse) {
+
+    var carResults = JSON.parse(JSON.stringify(carResponse));
+    console.log(carResults.Result);
+
+    });
+
+    ////HOTEL RENTAL SEARCH WITH HOTWIRE
+    //FOR NOW, JUST ASSUMING THE SAME START/END DATES AS THE FLIGHTS AT NOON
+    //TO UPDATE WITH NEW START END DATES & TIMES BASED ON FLIGHT TIMES
+
+    //Hotel API key for Hotwire.com API
+    var hotelAPIkey = "qwjnwktsp5td59nb8z3n3qeg";
+    
+    var hotelURL = "http://hotwire.herokuapp.com/v1/search/car?" 
+        + "apikey=" + hotelAPIkey 
+        + "&format=" + "JSON" 
+        + "&dest=" + destination
+        + "&rooms=" + "1"
+        + "&adults=" + "1"
+        + "&children=" + "0"
+        + "&startdate=" + startdate
+        + "&enddate=" + enddate;
+
+    console.log("Hotwire Hotel URL:", hotelURL);
+
+    //AJAX for car rental
+    $.ajax({
+        url: hotelURL,
+        method: "GET",
+        dataTYpe: "json"
+    }).done(function(hotelResponse) {
+
+    var hotelResults = JSON.parse(JSON.stringify(hotelResponse));
+    console.log(hotelResults.Result);
+
+    });
+
 
 });
 
