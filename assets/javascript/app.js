@@ -15,7 +15,7 @@ var FlightRequest = {
             "kind": "qpxexpress#sliceInput",
             "origin": "DCA",
             "destination": "LAX",
-            "date": "2017-08-13"
+            "date": "2017-08-14"
     
             }
         ],
