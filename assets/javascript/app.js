@@ -32,7 +32,6 @@ var FlightRequest = {
 };
 
 $("#submit").on("click", function() {
-
     event.preventDefault();
 
     console.log("Pushed");
@@ -54,7 +53,6 @@ $("#submit").on("click", function() {
     FlightRequest.request.slice[0].date = startdate;
     FlightRequest.request.slice[0].date = startdate;
 
-
     $.ajax({
 
         type: "POST",
@@ -66,13 +64,10 @@ $("#submit").on("click", function() {
 
         // console.logging so i don't forget how to find what we really need from the ajax
         console.log(response);
-
         }
-
         });
 
     console.log(FlightRequest);
-
     ////CAR RENTAL SEARCH WITH HOTWIRE
     //FOR NOW, JUST ASSUMING THE SAME START/END DATES AS THE FLIGHTS AT NOON
     //TO UPDATE WITH NEW START END DATES & TIMES BASED ON FLIGHT TIMES
@@ -102,7 +97,6 @@ $("#submit").on("click", function() {
     console.log(carResults.Result);
 
     });
-
     ////HOTEL RENTAL SEARCH WITH HOTWIRE
     //FOR NOW, JUST ASSUMING THE SAME START/END DATES AS THE FLIGHTS AT NOON
     //TO UPDATE WITH NEW START END DATES & TIMES BASED ON FLIGHT TIMES
@@ -134,7 +128,94 @@ $("#submit").on("click", function() {
 
     });
 
-
 });
+
+function changeDisplay() {
+    console.log("You are in changeDisplay")
+    $("#price").text(totalprice);
+    $("#costLevel").text(priceLevel);
+    $(".question").toggleClass('hidden');
+
+    //display the question and options
+    $("#questionHD").html(questions[z].question);
+    $("#answer1").html(questions[z].answer1);
+    $("#answer2").html(questions[z].answer2);
+    $("#answer3").html(questions[z].answer3);
+    $("#answer4").html(questions[z].answer4);
+
+    // start the display timer & go to response page timer
+    timer = 10;
+    countDown(timer);
+    itertimer = setTimeout(NoResponse, 10000);
+
+    //pull out and save the ID and text of correct answer for comparison, enable answer click button
+    thisquestion = questions[z].question;
+    answerindex = questions[z].correct;
+    thisanswer = questions[z][answerindex];
+}
+
+var car = [201];
+var hotel = [80];
+var airfare = [400];
+var labels = ["Trip Costs"];
+
+function createChartTest() {
+
+    var ctx = document.getElementById("income").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Car',
+                    data: car,
+                    backgroundColor: "rgba(153, 102, 255, 0.2)",
+                    hoverBackgroundColor: "rgba(153, 102, 255, .7)",
+                    hoverBorderWidth: 2,
+                    hoverBorderColor: 'lightgrey'
+                },
+                {
+                    label: 'Hotel',
+                    data: hotel,
+                    backgroundColor: "rgba(54, 162, 235, 0.2)",
+                    hoverBackgroundColor: "rgba(54, 162, 235, .7)",
+                    hoverBorderWidth: 2,
+                    hoverBorderColor: 'lightgrey'
+                },
+                {
+                    label: 'Plane',
+                    data: airfare,
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    hoverBackgroundColor: "rgba(75, 192, 192, .7)",
+                    hoverBorderWidth: 2,
+                    hoverBorderColor: 'lightgrey'
+                },
+            ]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+                }],
+                yAxes: [{
+                    stacked: true,
+                    gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+                }]
+            }
+    }
+})
+}
+window.onload = function() {
+   createChartTest();
+}
+
+
+
 
 });
