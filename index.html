@@ -13,12 +13,14 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<!--D3--> -->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<!---chart.js-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"> </script>	
 	<!-- local js -->
 	<script type="text/javascript" src="assets/javascript/app.js">
 	</script>
-	<!--D3--> -->
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-
+	<script type="text/javascript" src="assets/javascript/chart.js"></script>
 
 </head>
 <body>
@@ -54,14 +56,15 @@
 			</div>
 			<div class="row" id="resultrow"><!--row for results-->	
 				<div class="panel panel-default" id="results-panel"><!--panel for breakdown AMAZON--> 
-			    	<div class="panel-heading" id="results-heading">Results!</div>
 	  				<div class="panel-body" id="results-body">
 					Your total for your trip from city to city for number days will cost approximately: 
-					<h1>$$44444</h1>
+					<h1>$$44444</h1><br>
 					cheapest car is compact
 					cheapest hotel is 1 star
 					cheapest flight has a 5 hour layover
-	  				</div>		    	
+	  				</div>
+	  				<div class="panel-heading" id="results-heading">Price Comparisons</div>	
+	  				<canvas id="income" width="600" height="120"></canvas>
 			    </div><!--panel for breakdown default-->  
 			</div><!--row for results--> 	
 		
@@ -70,11 +73,14 @@
 	</div><!-- post-jumbotron giant row for main columns -->
 
 
+
 	<footer class="footer text-right">
     <p>&copy; Anastasia Mark, James Webber, and Jon Christensen 2017</p>
     </footer>
 
 <script>
+
+
 </script>
 
 </body>
