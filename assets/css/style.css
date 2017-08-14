@@ -97,6 +97,7 @@ div{}
 #results-panel{
 	background-image: url('../images/tag.png');	
     background-size: 100% 100%;
+    background-color: transparent;
 }
 
 #compare-heading{
