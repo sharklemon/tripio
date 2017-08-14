@@ -1,10 +1,10 @@
 *{}
 
 body{
-	background-color: rgb(218,226,227);
+	background-color: rgb(220,228,230);
     background-image: url('../images/background.jpeg');
+    background-repeat: no-repeat;
     background-size: 100%;
-
 }
 .show {
   display: block !important;
@@ -21,18 +21,19 @@ body{
 	padding: 10px;
 }
 
-#maincolsrow{
+#maincolsrow{}
 
+.footer{
+	background-color: rgb(220,228,230);
 }
 
 div{}
 
-.panel-default{
-	background-image: url('../images/tag.png');	
-    background-size:800px;
+.panel{
     background-color: rgba(255,255,255,0.0);
     border:0px;
-    padding:0 0 0 70px;
+    padding:10px 0 10px 40px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
 }
 
 
@@ -47,9 +48,24 @@ div{}
 	background-color: rgb(123,166,145);
 	border: 0;
 	width:180px;
-	height:100px;
+	height:70px;
 	padding: 0px;
 	margin:10px 5px 10px 5px;
+}
+
+.OPTION:hover {
+    background-color: rgba(166,123,134, 0.7);
+    color: white;
+}
+
+.PrCompare{
+	background-color: rgb(166,123,134);
+	border: 0;
+}
+
+.PrCompare:hover {
+    background-color: rgba(123,166,145, 0.7);
+    color: white;
 }
 
 .Submit{
@@ -68,9 +84,67 @@ div{}
 	background-color: rgba(255,255,255,0.4);
 	font-weight:bold;
 	font-size: 20px;	
+	margin: 0 50px 10px 50px;
+	padding:3px;
+}
+
+.panel-default > .panel-body{
+	border:0px;
+    background-color: rgba(255,255,255,0.2);
 	margin: 0 50px;
 }
-#results-body{
-	border:0px;
-	background: 0;
+
+#results-panel{
+	background-image: url('../images/tag.png');	
+    background-size: 100% 100%;
+}
+
+#compare-heading{
+	margin:0px 50px 10px 50px;
+}
+
+h3{
+	padding: 10px 0 0 0;
+	margin:0px;
+}
+
+.gly-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }
