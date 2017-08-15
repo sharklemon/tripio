@@ -1,5 +1,4 @@
 
-
 $(document).ready(function() {
 
 // these vars will equal to whatever we pull from the form; the JSON object right now has placeholder origins, destinations, and dates
@@ -12,7 +11,6 @@ var landing;
 var takeOff;
 var carPrice;
 var hotelPrice;
-
 
 
 // the JSON object for the ajax call, there's some room to make some modifications (number of adults/kids, number of results, max price, nonstop or not, etc)
@@ -82,12 +80,12 @@ $("#Cheapo-cent-btn").on("click", function() {
         // console.log(response.trips.tripOption[0].slice[0].segment[7].leg[0].arrivalTime);
         // console.log(response.trips.tripOption[0].slice[0].segment[7].leg[0].departureTime);
 
-        airlinePrice = response.trips.tripOption[0].pricing[0].baseFareTotal;
+        airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].baseFareTotal.replace("USD", ""));
 
         console.log(response);
 
-        landing = response.trips.tripOption[0].slice[0].segment[0].leg[1].arrivalTime;
-        takeOff = response.trips.tripOption[0].slice[1].segment[0].leg[0].departureTime;
+        landing = response.trips.tripOption[0].slice[0].segment[0].leg[response.trips.tripOption[0].slice[0].segment[0].leg.length-1].arrivalTime;
+        takeOff = response.trips.tripOption[0].slice[1].segment[0].leg[response.trips.tripOption[0].slice[1].segment[0].leg.length-1].departureTime;
 
         landing = landing.substr(landing.indexOf("T") + 1, 2) + ":00";
         takeOff = takeOff.substr(takeOff.indexOf("T") + 1, 2) + ":00";
@@ -133,7 +131,7 @@ $("#Cheapo-cent-btn").on("click", function() {
         var carResults = JSON.parse(carResponse);
         console.log(carResults);
 
-        carPrice = carResults.Result[0].TotalPrice;
+        carPrice = parseInt(carResults.Result[0].TotalPrice);
 
 
 
@@ -170,13 +168,17 @@ $("#Cheapo-cent-btn").on("click", function() {
             var hotelResults = JSON.parse(hotelResponse);
             console.log(hotelResults);
 
-            hotelPrice = hotelResults.Result[0].TotalPrice;
+            hotelPrice = parseInt(hotelResults.Result[0].TotalPrice);
 
-            console.log(hotelPrice);
-            console.log(carPrice);
-            console.log(airlinePrice);
+            console.log(hotelPrice, typeof hotelPrice);
+            console.log(carPrice, typeof carPrice);
+            console.log(airlinePrice, typeof airlinePrice);
 
-            $("#totalPrice").text("$" + (parseInt(hotelPrice) + parseInt(carPrice) + parseInt(airlinePrice.replace("USD", ""))));
+            $("#totalPrice").text("$" + (hotelPrice + carPrice + airlinePrice));
+
+            }).done(function() {
+
+                createChartTest();
 
             });
 
@@ -186,22 +188,17 @@ $("#Cheapo-cent-btn").on("click", function() {
 
 });
 
-var car = carPrice;
-var hotel = hotelPrice;
-var airfare = airlinePrice;
-var labels = ["Trip Costs"];
-
 function createChartTest() {
 
     var ctx = document.getElementById("income").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
-            labels: labels,
+            labels: "Trip Costs",
             datasets: [
                 {
                     label: 'Car',
-                    data: car,
+                    data: carPrice,
                     backgroundColor: "rgba(153, 102, 255, 0.2)",
                     hoverBackgroundColor: "rgba(153, 102, 255, .7)",
                     hoverBorderWidth: 2,
@@ -209,7 +206,7 @@ function createChartTest() {
                 },
                 {
                     label: 'Hotel',
-                    data: hotel,
+                    data: hotelPrice,
                     backgroundColor: "rgba(54, 162, 235, 0.2)",
                     hoverBackgroundColor: "rgba(54, 162, 235, .7)",
                     hoverBorderWidth: 2,
@@ -217,7 +214,7 @@ function createChartTest() {
                 },
                 {
                     label: 'Plane',
-                    data: airfare,
+                    data: airlinePrice,
                     backgroundColor: "rgba(75, 192, 192, 0.2)",
                     hoverBackgroundColor: "rgba(75, 192, 192, .7)",
                     hoverBorderWidth: 2,
@@ -240,13 +237,9 @@ function createChartTest() {
                 }
                 }]
             }
-    }
-})
+        }
+    })
 }
-window.onload = function() {
-   createChartTest();
-}
-
 
 });
 
