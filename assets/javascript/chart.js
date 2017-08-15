@@ -1,13 +1,22 @@
-$(document).ready(function() {
+//$(document).ready(function() {
 
 console.log("you are in chart.js")
 
 var ctx = document.getElementById("myChart").getContext('2d');
-
 var myChart;
 
-function createChart(airlinePrices, carPrices, hotelPrices){
-	
+var car;
+var hotel;
+var airfare;
+
+function createVariables() {
+	car = carPrice;
+	hotel = hotelPrice;
+	airfare = airlinePrice;	
+}
+
+function createChart(){
+
 	myChart =  new Chart(ctx, {
 
     type: 'horizontalBar',
@@ -16,7 +25,7 @@ function createChart(airlinePrices, carPrices, hotelPrices){
         datasets: [
             {
         		label: 'Car',
-        		data: [carPrices],
+        		data: [car],
 				backgroundColor: "rgba(153, 102, 255, 0.2)",
 				hoverBackgroundColor: "rgba(153, 102, 255, .7)",
 				hoverBorderWidth: 2,
@@ -24,7 +33,7 @@ function createChart(airlinePrices, carPrices, hotelPrices){
     		},
     		{
 	            label: 'Hotel',
-	            data: [hotelPrices],
+	            data: [hotel],
 				backgroundColor: "rgba(54, 162, 235, 0.2)",
 				hoverBackgroundColor: "rgba(54, 162, 235, .7)",
 				hoverBorderWidth: 2,
@@ -32,7 +41,7 @@ function createChart(airlinePrices, carPrices, hotelPrices){
     		},
     		{
 	            label: 'Plane',
-	            data: [airlinePrices],
+	            data: [airfare],
 				backgroundColor: "rgba(75, 192, 192, 0.2)",
 				hoverBackgroundColor: "rgba(75, 192, 192, .7)",
 				hoverBorderWidth: 2,
@@ -63,9 +72,6 @@ function createChart(airlinePrices, carPrices, hotelPrices){
 
 }
 
-createChart();
-
-
 document.getElementById("myChart").onclick = function(evt){
 	console.log("in onclick");
 	var activeElement = myChart.getElementAtEvent(evt);
@@ -73,15 +79,18 @@ document.getElementById("myChart").onclick = function(evt){
    	console.log(label); 
     if (label=="Car"){
 	   	car = 0
-		console.log(car)
+		console.log(carPrice)
+		//CLEAR OLD CHART;
 		createChart();
     }
     else if (label == "Hotel"){
     	hotel = 0;
+    	//CLEAR OLD CHART;
     	createChart();
     }
     else if (label == "Plane"){
     	airfare = 0;
+    	//CLEAR OLD CHART;
 		createChart();
 	}	
    else{
@@ -90,15 +99,4 @@ document.getElementById("myChart").onclick = function(evt){
 }
 
 
-});
-
-
-
-
-
-
-
-
-
-
-
+//});

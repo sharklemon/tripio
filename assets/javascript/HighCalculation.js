@@ -27,7 +27,7 @@ function highCalculation(FlightRequest) {
     $.ajax({
 
         type: "POST",
-        url: "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB3JP72tQdTTasFMFLaFYLywEvTElmnEuA", 
+        url: "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB0y0LKck7gyTlGvcsuqtPrmQBS4_BBhGA", 
         contentType: "application/json", 
         dataType: "json",
         data: JSON.stringify(FlightRequest),
@@ -134,7 +134,7 @@ function highCalculation(FlightRequest) {
 
             }).done(function() {
 
-                createChartTest();
+                createChart(airlinePrice, carPrice, hotelPrice);
 
             });
 

@@ -121,7 +121,8 @@ function lowCalculation(FlightRequest) {
 
             }).done(function() {
 
-                createChartTest(airlinePrice, carPrice, hotelPrice);
+            	createVariables();
+                createChart();
 
             });
 
