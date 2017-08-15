@@ -1,9 +1,9 @@
-var car = [201];
-var hotel = [80];
-var airfare = [400];
-var labels = ["Trip Costs"];
-
 function createChartTest() {
+
+	var car = [carPrice];
+	var hotel = [hotelPrice];
+	var airfare = [airlinePrice];
+	var labels = ["Trip Costs"];
 
 	var ctx = document.getElementById("income").getContext('2d');
 	var myChart = new Chart(ctx, {
@@ -52,9 +52,9 @@ function createChartTest() {
                 }
 	            }]
 	        }
-    }
-})
+    	}
+	});
 }
-window.onload = function() {
-   createChartTest();
-}
+// window.onload = function() {
+//    createChartTest();
+// }

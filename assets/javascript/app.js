@@ -194,11 +194,11 @@ function createChartTest() {
     var myChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
-            labels: "Trip Costs",
+            labels: ["Trip Costs"],
             datasets: [
                 {
                     label: 'Car',
-                    data: carPrice,
+                    data: [carPrice],
                     backgroundColor: "rgba(153, 102, 255, 0.2)",
                     hoverBackgroundColor: "rgba(153, 102, 255, .7)",
                     hoverBorderWidth: 2,
@@ -206,7 +206,7 @@ function createChartTest() {
                 },
                 {
                     label: 'Hotel',
-                    data: hotelPrice,
+                    data: [hotelPrice],
                     backgroundColor: "rgba(54, 162, 235, 0.2)",
                     hoverBackgroundColor: "rgba(54, 162, 235, .7)",
                     hoverBorderWidth: 2,
@@ -214,7 +214,7 @@ function createChartTest() {
                 },
                 {
                     label: 'Plane',
-                    data: airlinePrice,
+                    data: [airlinePrice],
                     backgroundColor: "rgba(75, 192, 192, 0.2)",
                     hoverBackgroundColor: "rgba(75, 192, 192, .7)",
                     hoverBorderWidth: 2,
@@ -238,8 +238,8 @@ function createChartTest() {
                 }]
             }
         }
-    })
-}
+    }) //closes newChart
+} //closes createChartType()
 
 });
 
