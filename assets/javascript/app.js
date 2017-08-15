@@ -50,10 +50,7 @@ $("#Cheapo-cent-btn").on("click", function() {
     startdate = $("#startdate").val().trim();
     returndate = $("#returndate").val().trim();
 
-    console.log(home);
-    console.log(destination);
-    console.log(startdate);
-    console.log(returndate);
+    console.log(home, "to", destination, "leaving", startdate, "and returning", returndate);
 
     ////FLIGHT SEARCH WITH QPX
 
@@ -75,11 +72,6 @@ $("#Cheapo-cent-btn").on("click", function() {
         data: JSON.stringify(FlightRequest),
         success: function (response) {
 
-        // console.logging so i don't forget how to find what we really need from the ajax
-        // console.log(response.trips.tripOption[0].pricing[0].baseFareTotal);
-        // console.log(response.trips.tripOption[0].slice[0].segment[7].leg[0].arrivalTime);
-        // console.log(response.trips.tripOption[0].slice[0].segment[7].leg[0].departureTime);
-
         airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].baseFareTotal.replace("USD", ""));
 
         console.log(response);
@@ -96,15 +88,9 @@ $("#Cheapo-cent-btn").on("click", function() {
 
     ////CAR RENTAL SEARCH WITH HOTWIRE
 
-        //FOR NOW, JUST ASSUMING THE SAME START/END DATES AS THE FLIGHTS AT NOON
-        //TO UPDATE WITH NEW START END DATES & TIMES BASED ON FLIGHT TIMES
-
         //Reformats dates for hotwire format
         startdate = startdate.substring(5, 7) + "/" + startdate.substring(8, 10) + "/" + startdate.substring(0, 4);
         returndate = returndate.substring(5, 7) + "/" + returndate.substring(8, 10) + "/" + returndate.substring(0, 4);
-
-        console.log(startdate);
-        console.log(returndate);
 
         //car API key for Hotwire.com API
         var carAPIkey = "qwjnwktsp5td59nb8z3n3qeg";
@@ -118,8 +104,6 @@ $("#Cheapo-cent-btn").on("click", function() {
             + "&pickuptime=" + landing
             + "&dropofftime=" + takeOff
             + "&includeResultsLink=true";
-
-        console.log("Hotwire Car URL:", carURL); 
    
         //AJAX for car rental
         $.ajax({
@@ -133,14 +117,9 @@ $("#Cheapo-cent-btn").on("click", function() {
 
         carPrice = parseInt(carResults.Result[0].TotalPrice);
 
-
-
         }).done(function() {
 
         ////HOTEL RENTAL SEARCH WITH HOTWIRE
-
-            //FOR NOW, JUST ASSUMING THE SAME START/END DATES AS THE FLIGHTS AT NOON
-            //TO UPDATE WITH NEW START END DATES & TIMES BASED ON FLIGHT TIMES
 
             //Hotel API key for Hotwire.com API
             var hotelAPIkey = "qwjnwktsp5td59nb8z3n3qeg";
@@ -156,8 +135,6 @@ $("#Cheapo-cent-btn").on("click", function() {
                 + "&enddate=" + returndate
                 + "&includeResultsLink=true";
 
-            console.log("Hotwire Hotel URL:", hotelURL);
-
             //AJAX for hotel rental
             $.ajax({
                 url: hotelURL,
@@ -168,13 +145,19 @@ $("#Cheapo-cent-btn").on("click", function() {
             var hotelResults = JSON.parse(hotelResponse);
             console.log(hotelResults);
 
-            hotelPrice = parseInt(hotelResults.Result[0].TotalPrice);
+            //Runs through array of search results and pulls index of chepeast option
+            var cheapestHotel = 0;
+            for (var i = 1; i < hotelResults.Result.length; i++) {
+                if(parseFloat(hotelResults.Result[i].TotalPrice) < parseFloat(hotelResults.Result[cheapestHotel].TotalPrice)) {
+                    cheapestHotel = i;
+                }
+            }
 
-            console.log(hotelPrice, typeof hotelPrice);
-            console.log(carPrice, typeof carPrice);
-            console.log(airlinePrice, typeof airlinePrice);
+            hotelPrice = parseInt(hotelResults.Result[cheapestHotel].TotalPrice);
 
-            $("#totalPrice").text("$" + (hotelPrice + carPrice + airlinePrice));
+            console.log(airlinePrice, carPrice, hotelPrice);
+
+            $("#totalPrice").text("$" + (airlinePrice + carPrice + hotelPrice));
 
             }).done(function() {
 
