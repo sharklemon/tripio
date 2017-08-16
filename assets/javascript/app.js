@@ -43,7 +43,10 @@ var FlightRequest = {
 
 //Event listener for cheap button click
 $("#Cheapo-cent-btn").on("click", function() {
-
+    $("#plane-spinner").removeClass('hidden');
+    $("#plane-spinner").addClass('show');
+    $("#price-display").removeClass('show');
+    $("#price-display").addClass('hidden');
     event.preventDefault();
 
     lowCalculation(FlightRequest);
@@ -67,59 +70,6 @@ $("#MadCash-cent-btn").on("click", function() {
     highCalculation(FlightRequest);
 
 });
-
-// function createChartTest() {
-
-//     var ctx = document.getElementById("income").getContext('2d');
-//     var myChart = new Chart(ctx, {
-//         type: 'horizontalBar',
-//         data: {
-//             labels: ["Trip Costs"],
-//             datasets: [
-//                 {
-//                     label: 'Car',
-//                     data: [carPrice],
-//                     backgroundColor: "rgba(153, 102, 255, 0.2)",
-//                     hoverBackgroundColor: "rgba(153, 102, 255, .7)",
-//                     hoverBorderWidth: 2,
-//                     hoverBorderColor: 'lightgrey'
-//                 },
-//                 {
-//                     label: 'Hotel',
-//                     data: [hotelPrice],
-//                     backgroundColor: "rgba(54, 162, 235, 0.2)",
-//                     hoverBackgroundColor: "rgba(54, 162, 235, .7)",
-//                     hoverBorderWidth: 2,
-//                     hoverBorderColor: 'lightgrey'
-//                 },
-//                 {
-//                     label: 'Plane',
-//                     data: [airlinePrice],
-//                     backgroundColor: "rgba(75, 192, 192, 0.2)",
-//                     hoverBackgroundColor: "rgba(75, 192, 192, .7)",
-//                     hoverBorderWidth: 2,
-//                     hoverBorderColor: 'lightgrey'
-//                 },
-//             ]
-//         },
-//         options: {
-//             scales: {
-//                 xAxes: [{
-//                     stacked: true,
-//                     gridLines: {
-//                     color: "rgba(0, 0, 0, 0)",
-//                 }
-//                 }],
-//                 yAxes: [{
-//                     stacked: true,
-//                     gridLines: {
-//                     color: "rgba(0, 0, 0, 0)",
-//                 }
-//                 }]
-//             }
-//         }
-//     }) //closes newChart
-// } //closes createChartType()
 
 });
 

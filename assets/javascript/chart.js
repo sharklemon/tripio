@@ -1,5 +1,3 @@
-//$(document).ready(function() {
-
 console.log("you are in chart.js")
 
 var ctx = document.getElementById("myChart").getContext('2d');
@@ -9,10 +7,32 @@ var car;
 var hotel;
 var airfare;
 
+var carAPI;
+var hotelAPI;
+var planeAPI;
+
+var caron = true;
+var hotelon = true;
+var airfareon = true;
+
 function createVariables() {
 	car = carPrice;
 	hotel = hotelPrice;
 	airfare = airlinePrice;	
+	
+	carAPI = carPrice;
+	hotelAPI = hotelPrice;
+	airfareAPI = airlinePrice;
+}
+
+function createVariablestest() {
+	car = 14;
+	hotel = 51;
+	airfare = 99;	
+
+	carAPI = 14;
+	hotelAPI = 51;
+	airfareAPI = 99;
 }
 
 function createChart(){
@@ -40,7 +60,7 @@ function createChart(){
 				hoverBorderColor: 'lightgrey'
     		},
     		{
-	            label: 'Plane',
+	            label: 'Airfare',
 	            data: [airfare],
 				backgroundColor: "rgba(75, 192, 192, 0.2)",
 				hoverBackgroundColor: "rgba(75, 192, 192, .7)",
@@ -71,32 +91,55 @@ function createChart(){
 });
 
 }
+createVariablestest();
+createChart();
 
-document.getElementById("myChart").onclick = function(evt){
+document.getElementById("rmvCar").onclick = function(evt){
 	console.log("in onclick");
-	var activeElement = myChart.getElementAtEvent(evt);
-    label = activeElement[0]._model.datasetLabel;
-   	console.log(label); 
-    if (label=="Car"){
-	   	car = 0
-		console.log(carPrice)
-		//CLEAR OLD CHART;
+	if(caron){
+		car = 0;
+		createChart(); 
+		caron = false;
+		$("#totalPrice").text("$" + (airfare + car + hotel));		
+	}
+	else{
+		car = carAPI;
 		createChart();
-    }
-    else if (label == "Hotel"){
-    	hotel = 0;
-    	//CLEAR OLD CHART;
-    	createChart();
-    }
-    else if (label == "Plane"){
-    	airfare = 0;
-    	//CLEAR OLD CHART;
+		caron=true;
+		$("#totalPrice").text("$" + (airfare + car + hotel));		
+	}
+}
+
+document.getElementById("rmvHotel").onclick = function(evt){
+	console.log("in onclick");
+	if(hotelon){
+		hotel = 0;
+		createChart(); 
+		hotelon = false;
+		$("#totalPrice").text("$" + (airfare + car + hotel));
+	}
+	else{
+		hotel = hotelAPI;
 		createChart();
-	}	
-   else{
-   	console.log("error")
-   };
+		hotelon=true;
+		$("#totalPrice").text("$" + (airfare + car + hotel));		
+	}
+}
+
+document.getElementById("rmvPlane").onclick = function(evt){
+	console.log("in onclick");
+	if(airfareon){
+		airfare = 0;
+		createChart(); 
+		airfareon = false;
+		$("#totalPrice").text("$" + (airfare + car + hotel));		
+	}
+	else{
+		airfare = airfareAPI;
+		createChart();
+		airfareon=true;
+		$("#totalPrice").text("$" + (airfare + car + hotel));		
+	}
 }
 
 
-//});

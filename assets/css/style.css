@@ -58,12 +58,12 @@ div{}
     color: white;
 }
 
-.PrCompare{
+.rmvCOST{
 	background-color: rgb(166,123,134);
 	border: 0;
 }
 
-.PrCompare:hover {
+.rmvCOST:hover {
     background-color: rgba(123,166,145, 0.7);
     color: white;
 }
@@ -108,7 +108,15 @@ h3{
 	padding: 10px 0 0 0;
 	margin:0px;
 }
-
+h2{
+	padding:0 10px 0 0;
+}
+.input{
+	height:80px;
+}
+.glyphicon {
+    font-size: 100px;
+}
 .gly-spin {
   -webkit-animation: spin 2s infinite linear;
   -moz-animation: spin 2s infinite linear;
@@ -148,4 +156,12 @@ h3{
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
+}
+
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }

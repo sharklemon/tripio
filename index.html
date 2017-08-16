@@ -25,21 +25,29 @@
 		<!-- Jumbotron with Title -->
 	<div class="jumbotron">
 		<h1 class="text-center" id="JTtitle">trip.io</h1>
-		<h3 id="catchphrase" class="text-center">Simple trip planning to choose your destination <span class="glyphicon gly-spin glyphicon-plane"></span></h3>
+		<h3 id="catchphrase" class="text-center">Simple trip planning to choose your destination</h3>
 		<p id="lastUpdate"></p>
 	</div> <!-- jumbotron class -->
 	
 	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->
 	    
-	    <div class="col-lg-4" id="leftcol"><!--column for input --> 
-		    <Label><h2>From....(enter the IATA code of where you are starting)</h2></Label></br>
-			<input id="home" type='text' title='home'>
-			<Label><h2>To....(enter the IATA code of where you are going)</h2></Label></br>
-			<input id="destination" type="text" title="arrival"></br>
-			<Label><h2>Departure Date</h2></Label></br>
-			<input id="startdate" type="date"></br>
-			<Label><h2>Return Date</h2></Label></br>
-			<input id="returndate" type="date"></br>
+	    <div class="col-lg-4 text-right" id="leftcol"><!--column for input --> 
+		    <div class="row input">
+			    <Label><h2>From...</h2></Label>
+				<input id="home" type='text' title='home' placeholder="IATA code e.g. EWR">
+			</div>
+		    <div class="row input">
+				<Label><h2>To...</h2></Label>
+				<input id="destination" type="text" title="arrival" placeholder="IATA code e.g. SFO"></br>
+			</div>
+		    <div class="row input">
+				<Label><h2>Departure Date</h2></Label>
+				<input id="startdate" type="date">
+			</div>
+		    <div class="row input">
+				<Label><h2>Return Date</h2></Label>
+				<input id="returndate" type="date">
+			</div>
 	    </div><!--column for input--> 
 		
 		<div class="col-lg-7" id="rightcol"><!--col for results and buttons --> 
@@ -50,21 +58,25 @@
 			<div class="panel panel-default" id="results-panel"><!--panel for results based on their input--> 
   				<div class="panel-heading" id="results-heading">Results for this search</div>	
   				<div class="panel-body" id="results-body">
-				Your total for your trip from city to city for number days will cost approximately: 
-				<h1 id="totalPrice">$000</h1><br>
-				<p id="costLevel">cheapest car is compact
-				cheapest hotel is 1 star
-				cheapest flight has a 5 hour layover</p>
+					<div id="top-results">
+					Your total for your will pop up below. 
+					</div>
+					<div id="price-display">
+						<h1 id="totalPrice">$000</h1><br>
+					</div>
+					<span class="glyphicon gly-spin glyphicon-plane hidden" id="plane-spinner"></span>
+					<div id="bottom-results">
+					Different price options will search using different criteria.					
+					</div>
   				</div>
 			</div><!--panel for results based on their input--> 
 
 			<div class="panel panel-default" id="results-panel"><!--panel for comparison of itineraries--> 			
   				<div class="panel-heading" id="compare-heading">Price Comparisons</div>	
 				<div class="panel-body" id="compare-body">
-				<button class="btn btn-default PrCompare" id="dEarly">Depart early</button>	
-				<button class="btn btn-default PrCompare" id="rLate">Return late</button>
-				<button class="btn btn-default PrCompare" id="eTrip">Extended Trip</button>
-				<button class="btn btn-default PrCompare" id="NWeek">Next Week</button>
+				<button class="btn btn-default rmvCOST" id="rmvCar">Car Price Toggle</button>	
+				<button class="btn btn-default rmvCOST" id="rmvHotel">Hotel Price Toggle</button>
+				<button class="btn btn-default rmvCOST" id="rmvPlane">Airfare Price Toggle</button>
   				<canvas id="myChart" width="600" height="120"></canvas>
   				</div>
 		    </div><!--panel for comparison of itineraries-->  

@@ -116,7 +116,10 @@ function lowCalculation(FlightRequest) {
             hotelPrice = parseInt(hotelResults.Result[cheapestHotel].TotalPrice);
 
             console.log(airlinePrice, carPrice, hotelPrice);
-
+            $("#plane-spinner").removeClass('show');
+            $("#plane-spinner").addClass('hidden');
+            $("#price-display").removeClass('hidden');
+            $("#price-display").addClass('show');
             $("#totalPrice").text("$" + (airlinePrice + carPrice + hotelPrice));
 
             }).done(function() {
