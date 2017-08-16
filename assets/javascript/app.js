@@ -103,3 +103,29 @@ $(document).ready(function() {
     });
 
 });
+
+function cancel(error) {
+    var errorMessage;
+
+    if(error = "flights") {
+        errorMessage = "Your flight search was unsuccessful. Please verify or change your search criteria.";
+    }
+    else if(error = "cars") {
+        errorMessage = "Your car search was unsuccessful. Please verify or change your search criteria.";
+    }
+    else {
+        errorMessage = "Your hotel search was unsuccessful. Please verify or change your search criteria. Hotel stays should be no longer than 30 days.";
+    }
+
+    //Hides plane spinner, shows price-display
+    $("#plane-spinner").removeClass('show');
+    $("#plane-spinner").addClass('hidden');
+    $("#price-display").removeClass('hidden');
+    $("#price-display").addClass('show');
+    
+    //Sets text in results section
+    $("#top-results").html("");
+    $("#bottom-results").html("");
+    $("#price-display").html(errorMessage);
+
+}

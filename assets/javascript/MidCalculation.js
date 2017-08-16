@@ -1,6 +1,6 @@
 function midCalculation(FlightRequest) {
 
-  console.log(FlightRequest);
+    console.log(FlightRequest);
 
     //Pulls search criteria from page
     home = $("#home").val().trim();
@@ -39,11 +39,18 @@ function midCalculation(FlightRequest) {
         data: JSON.stringify(FlightRequest),
         success: function (response) {
 
-        //Stores the total trip price for the return cheapest option
-        airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].baseFareTotal.replace("USD", ""));
-
         //Logs response object for each console checking
         console.log(response);
+
+        //Error checking for flights
+        if (!response.trips.tripOption) {
+            console.log("Error");
+            cancel("flights");
+            return;
+        }
+
+        //Stores the total trip price for the return cheapest option
+        airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].baseFareTotal.replace("USD", ""));
 
         //Stores the landing time of the departing flight and the takeOff time of the returning flight
         landing = response.trips.tripOption[0].slice[0].segment[0].leg[response.trips.tripOption[0].slice[0].segment[0].leg.length-1].arrivalTime;
@@ -86,12 +93,22 @@ function midCalculation(FlightRequest) {
         $.ajax({
             url: carURL,
             method: "GET",
-            dataTYpe: "json"
-        }).done(function(carResponse) { 
+            dataType: "json"
+        }).done(function(carResults) { 
 
-        //Parses the text response into an object and console logs it
-        var carResults = JSON.parse(carResponse);
+        //Console logs car search results
         console.log(carResults);
+
+        //Error checking for cars
+        if (carResults.StatusDesc !== "success") {
+            console.log("Error");
+            cancel("cars");
+            return;
+        }
+
+        //Since the car results are sorted by price lowest to highest, we can check index-0 for the lowest priced option
+        //Parses the price of the car as an Int
+        carPrice = parseInt(carResults.Result[0].TotalPrice);
 
         //Acceptable classes of Mid to Luxury cars
         var luxuryCarsTypes = ["FCAR", "FFAR", "ICAR", "IFAR", "LCAR", "PCAR", "SCAR", "SFAR", "SPAR", "STAR"];
@@ -120,7 +137,7 @@ function midCalculation(FlightRequest) {
 /////////////////////////////////
 
             //Hotel API key for Hotwire.com API
-            var hotelAPIkey = "qwjnwktsp5td59nb8z3n3qeg";
+            var hotelAPIkey = "knzduxyfwxk9gshgf2ztxmum";
             
             //Creates URL for Hotwire URL
             //Utilizes a CORS enabled wrapper on the Hotwire API created by Dana Silver
@@ -140,12 +157,18 @@ function midCalculation(FlightRequest) {
             $.ajax({
                 url: hotelURL,
                 method: "GET",
-                dataTYpe: "json"
-            }).done(function(hotelResponse) {
+                dataType: "json"
+            }).done(function(hotelResults) {
 
-            //Parses the text response into an object and console logs it
-            var hotelResults = JSON.parse(hotelResponse);
+            // Console logs hotel results
             console.log(hotelResults);
+
+            //Error checking for hotels
+            if (hotelResults.StatusDesc !== "success") {
+                console.log("Error");
+                cancel("hotels");
+                return;
+            }
 
             //Acceptable hotel ratings for the middling spender (3+ stars)
             var acceptableHotelRatings = ["3.0", "3.5", "4.0", "4.5", "5.0"];

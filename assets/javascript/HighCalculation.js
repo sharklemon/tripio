@@ -40,19 +40,26 @@ function highCalculation(FlightRequest) {
         data: JSON.stringify(FlightRequest),
         success: function (response) {
 
-            //Stores the total trip price for the return cheapest option
-            airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].baseFareTotal.replace("USD", ""));
+        //Logs response object for each console checking
+        console.log(response);
 
-            //Logs response object for each console checking
-            console.log(response);
+        //Error checking for flights
+        if (!response.trips.tripOption) {
+            console.log("Error");
+            cancel("flights");
+            return;
+        }
 
-            //Stores the landing time of the departing flight and the takeOff time of the returning flight
-            landing = response.trips.tripOption[0].slice[0].segment[0].leg[response.trips.tripOption[0].slice[0].segment[0].leg.length-1].arrivalTime;
-            takeOff = response.trips.tripOption[0].slice[1].segment[0].leg[response.trips.tripOption[0].slice[1].segment[0].leg.length-1].departureTime;
+        //Stores the total trip price for the return cheapest option
+        airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].baseFareTotal.replace("USD", ""));
 
-            //Stores the hours from the times, and adds :00 to adhere to HH:MM format
-            landing = landing.substr(landing.indexOf("T") + 1, 2) + ":00";
-            takeOff = takeOff.substr(takeOff.indexOf("T") + 1, 2) + ":00";
+        //Stores the landing time of the departing flight and the takeOff time of the returning flight
+        landing = response.trips.tripOption[0].slice[0].segment[0].leg[response.trips.tripOption[0].slice[0].segment[0].leg.length-1].arrivalTime;
+        takeOff = response.trips.tripOption[0].slice[1].segment[0].leg[response.trips.tripOption[0].slice[1].segment[0].leg.length-1].departureTime;
+
+        //Stores the hours from the times, and adds :00 to adhere to HH:MM format
+        landing = landing.substr(landing.indexOf("T") + 1, 2) + ":00";
+        takeOff = takeOff.substr(takeOff.indexOf("T") + 1, 2) + ":00";
 
         }
 
@@ -87,12 +94,18 @@ function highCalculation(FlightRequest) {
         $.ajax({
             url: carURL,
             method: "GET",
-            dataTYpe: "json"
-        }).done(function(carResponse) { 
+            dataType: "json"
+        }).done(function(carResults) { 
 
-        //Parses the text response into an object and console logs it
-        var carResults = JSON.parse(carResponse);
+        //Console logs car search results
         console.log(carResults);
+
+        //Error checking for cars
+        if (carResults.StatusDesc !== "success") {
+            console.log("Error");
+            cancel("cars");
+            return;
+        }
 
         //Acceptable classes of Luxury cars
         var luxuryCarsTypes = ["FCAR", "FFAR", "LCAR", "PCAR", "STAR"];
@@ -121,7 +134,7 @@ function highCalculation(FlightRequest) {
 /////////////////////////////////
 
             //Hotel API key for Hotwire.com API
-            var hotelAPIkey = "qwjnwktsp5td59nb8z3n3qeg";
+            var hotelAPIkey = "knzduxyfwxk9gshgf2ztxmum";
 
             //Creates URL for Hotwire URL
             //Utilizes a CORS enabled wrapper on the Hotwire API created by Dana Silver
@@ -141,12 +154,18 @@ function highCalculation(FlightRequest) {
             $.ajax({
                 url: hotelURL,
                 method: "GET",
-                dataTYpe: "json"
-            }).done(function(hotelResponse) {
+                dataType: "json"
+            }).done(function(hotelResults) {
 
-            //Parses the text response into an object and console logs it
-            var hotelResults = JSON.parse(hotelResponse);
+            // Console logs hotel results
             console.log(hotelResults);
+
+            //Error checking for hotels
+            if (hotelResults.StatusDesc !== "success") {
+                console.log("Error");
+                cancel("hotels");
+                return;
+            }
 
             //Acceptable hotel ratings for the high-end spender (4+ stars)
             var acceptableHotelRatings = ["4.0", "4.5", "5.0"];
