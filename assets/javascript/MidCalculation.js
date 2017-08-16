@@ -72,7 +72,7 @@ function midCalculation(FlightRequest) {
         //Creates URL for Hotwire URL
         //Utilizes a CORS enabled wrapper on the Hotwire API created by Dana Silver
         //https://github.com/danasilver/hotwire
-        var carURL = "http://hotwire.herokuapp.com/v1/search/car?" 
+        var carURL = "https://hotwire.herokuapp.com/v1/search/car?" 
             + "apikey=" + carAPIkey 
             + "&format=" + "JSON" 
             + "&dest=" + destination
@@ -125,7 +125,7 @@ function midCalculation(FlightRequest) {
             //Creates URL for Hotwire URL
             //Utilizes a CORS enabled wrapper on the Hotwire API created by Dana Silver
             //https://github.com/danasilver/hotwire
-            var hotelURL = "http://hotwire.herokuapp.com/v1/search/hotel?" 
+            var hotelURL = "https://hotwire.herokuapp.com/v1/search/hotel?" 
                 + "apikey=" + hotelAPIkey 
                 + "&format=" + "JSON" 
                 + "&dest=" + destination
