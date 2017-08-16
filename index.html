@@ -29,9 +29,8 @@
 		<p id="lastUpdate"></p>
 	</div> <!-- jumbotron class -->
 	
-	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->
-	    
-	    <div class="col-lg-4 text-right" id="leftcol"><!--column for input --> 
+	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->	    
+	    <div class="col-md-6 text-right" id="leftcol"><!--column for input --> 
 		    <div class="row input">
 			    <Label><h2>From...</h2></Label>
 				<input id="home" type='text' title='home' placeholder="IATA code e.g. EWR">
@@ -40,6 +39,8 @@
 				<Label><h2>To...</h2></Label>
 				<input id="destination" type="text" title="arrival" placeholder="IATA code e.g. SFO"></br>
 			</div>
+	    </div><!--column for input--> 
+	    <div class="col-md-6 text-left" id="centercol"><!--column for input --> 
 		    <div class="row input">
 				<Label><h2>Departure Date</h2></Label>
 				<input id="startdate" type="date">
@@ -49,12 +50,15 @@
 				<input id="returndate" type="date">
 			</div>
 	    </div><!--column for input--> 
-		
-		<div class="col-lg-7" id="rightcol"><!--col for results and buttons --> 
-			<button class="btn btn-default OPTION" id="Cheapo-cent-btn"><h3>Cheapo</h3><p>cheapest options</p></button>
+	    <div class="col-md-12" id="rightcol">
+	    <button class="btn btn-default OPTION" id="Cheapo-cent-btn"><h3>Cheapo</h3><p>cheapest options</p></button>
 		    <button class="btn btn-default OPTION" id="Middler-cent-btn"><h3>Mid Range</h3><p>mid range search</p></button>
 		    <button class="btn btn-default OPTION" id="MadCash-cent-btn"><h3>Mad Cash</h3><p>luxury trip</p></button>			
-			<div class="panel-heading" id="choose-heading">Click on your price option above to submit your search</div>	
+	    </div>
+	</div><!-- post-jumbotron giant row for main columns -->
+	
+	<div class="row">	<!--row for bottom columns -->	
+		<div class="col-md-12 offset-md-3" id="lowercol"><!--col for results  --> 
 			<div class="panel panel-default" id="results-panel"><!--panel for results based on their input--> 
   				<div class="panel-heading" id="results-heading">Results for this search</div>	
   				<div class="panel-body" id="results-body">
@@ -80,9 +84,9 @@
   				<canvas id="myChart" width="600" height="120"></canvas>
   				</div>
 		    </div><!--panel for comparison of itineraries-->  
-		</div><!--col for results and buttons --> 
+		</div><!--col for results--> 
 	
-	</div><!-- post-jumbotron giant row for main columns -->
+	</div><!--row for bottom columns -->
 
 
 

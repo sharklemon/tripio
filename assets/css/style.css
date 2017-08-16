@@ -18,7 +18,8 @@ body{
 	background-color: rgba(255,255,255,0);
 	color:rgb(79,100,102);
 	font-family: 'Nunito', sans-serif;
-	padding: 10px;
+	margin:0;
+	padding:0;
 }
 
 #maincolsrow{}
@@ -37,15 +38,19 @@ div{}
 }
 
 
-#rightcol{
+#leftcol{
 	background-color: rgba(255,255,255,0);
 	border: 0px;
-	padding: 0 10px 0 10px;
-	margin:0 15px 0 15px;
+	padding:0 50px 0 0;
+}
+#lowercol{
+	margin: 0 25% 0 25%;
+	width:50%;
 }
 
 .OPTION{
-	background-color: rgb(123,166,145);
+	background-color: transparent;
+	color:black;
 	border: 0;
 	width:180px;
 	height:70px;
@@ -165,3 +170,10 @@ h2{
   display: none !important;
   visibility: hidden !important;
 }
+
+/*@media (min-width: 992px)
+	bootstrap.css:1961
+	#lowercol {
+	    width: 50%;
+	    margin: 0 0 0 25%;
+}*/
