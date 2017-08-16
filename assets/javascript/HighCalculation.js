@@ -177,10 +177,8 @@ function highCalculation(FlightRequest) {
             $("#price-display").removeClass('hidden');
             $("#price-display").addClass('show');
 
-            //Updates the text results with your price option, the total price, and details of the search
-            $("#top-results").text("You have chosen the premium option, your total is: ");
+            //Updates the text results with the total price
             $("#totalPrice").text("$" + (airlinePrice + carPrice + hotelPrice));
-            $("#bottom-results").text("Your result reflects the lowest non-stop First/Business class airfare, the lowest luxury car rate, and the lowest 4+ star hotel rates available.");
 
             }).done(function() {
                 //Updates the price variables and calls the method to create the price-breakdown chart

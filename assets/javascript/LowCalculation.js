@@ -153,10 +153,8 @@ function lowCalculation(FlightRequest) {
             $("#price-display").removeClass('hidden');
             $("#price-display").addClass('show');
             
-            //Updates the text results with your price option, the total price, and details of the search
-            $("#top-results").text("You have chosen the low-cost option, your total is: ");
+            //Updates the text results with the total price
             $("#totalPrice").text("$" + (airlinePrice + carPrice + hotelPrice));
-            $("#bottom-results").text("Your results reflects the lowest priced airfare, car rental, hotel listings found.");
 
             }).done(function() {
                 //Updates the price variables and calls the method to create the price-breakdown chart
