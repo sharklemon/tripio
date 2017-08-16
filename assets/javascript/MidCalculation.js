@@ -175,7 +175,8 @@ function midCalculation(FlightRequest) {
             $("#plane-spinner").addClass('hidden');
             $("#price-display").removeClass('hidden');
             $("#price-display").addClass('show');
-
+            $("#myChart").removeClass('hidden');
+            $("#myChart").addClass('show');       
             //Updates the text results with the total price
             $("#totalPrice").text("$" + (airlinePrice + carPrice + hotelPrice));
 

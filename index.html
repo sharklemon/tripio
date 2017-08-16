@@ -49,6 +49,7 @@
 	
 	<div class="row" id="bottomrow">	<!--row for bottom columns -->	
 		<div class="col-md-12 offset-md-3" id="lowercol"><!--col for results  --> 
+			
 			<div class="panel panel-default" id="results-panel"><!--panel for results based on their input--> 
   				<div class="panel-heading" id="results-heading">Results for this search</div>	
   				<div class="panel-body" id="results-body">
@@ -62,15 +63,17 @@
 					<div id="bottom-results">
 					Different price options will search using different criteria.					
 					</div>
-  				</div>	
-  				<div class="panel-heading" id="compare-heading">Price Comparison Options</div>	
-				<div class="panel-body text-center" id="compare-body">
-				<button class="btn btn-default rmvCOST" id="rmvCar">Car Price Toggle</button>	
-				<button class="btn btn-default rmvCOST" id="rmvHotel">Hotel Price Toggle</button>
-				<button class="btn btn-default rmvCOST" id="rmvPlane">Airfare Price Toggle</button>
-  				<canvas id="myChart" width="600" height="120"></canvas>
   				</div>
+  				<div class="panel-heading" id="compare-heading">Price Comparison Options
+  				</div>	
+				<div class="panel-body text-center" id="compare-body">
+					<button class="btn btn-default rmvCOST" id="rmvCar">Car Price Toggle</button>	
+					<button class="btn btn-default rmvCOST" id="rmvHotel">Hotel Price Toggle</button>
+					<button class="btn btn-default rmvCOST" id="rmvPlane">Airfare Price Toggle</button>
+					<canvas class="hidden" id="myChart" width="600" height="120"></canvas>
+	  			</div>	
 		    </div><!--panel for comparison of itineraries-->  
+		
 		</div><!--col for results--> 
 	
 	</div><!--row for bottom columns -->

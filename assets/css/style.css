@@ -62,11 +62,23 @@ div{}
 .rmvCOST{
 	background-color: rgb(166,123,134);
 	border: 0;
+	margin:10px;
+}
+
+#rmvCar{
+	background-color: rgb(214, 123, 120)
+}
+#rmvHotel{
+	background-color: rgb(214, 147, 120)
+}
+#rmvPlane{
+	background-color: rgb(214, 120, 161)
 }
 
 .rmvCOST:hover {
-    background-color: rgba(123,166,145, 0.7);
-    color: white;
+    background-color: transparent;
+    border:1px solid black;
+    color: black;
 }
 
 .Submit{

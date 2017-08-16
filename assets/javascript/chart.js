@@ -48,24 +48,24 @@ function createChart(){
             {
         		label: 'Car',
         		data: [car],
-				backgroundColor: "rgba(153, 102, 255, 0.2)",
-				hoverBackgroundColor: "rgba(153, 102, 255, .7)",
+				backgroundColor: "rgba(214, 123, 120, 0.4)",
+				hoverBackgroundColor: "rgba(214, 123, 120, .6)",
 				hoverBorderWidth: 2,
 				hoverBorderColor: 'lightgrey'
     		},
     		{
 	            label: 'Hotel',
 	            data: [hotel],
-				backgroundColor: "rgba(54, 162, 235, 0.2)",
-				hoverBackgroundColor: "rgba(54, 162, 235, .7)",
+				backgroundColor: "rgba(214, 147, 120, 0.4)",
+				hoverBackgroundColor: "rgba(214, 147, 120, .6)",
 				hoverBorderWidth: 2,
 				hoverBorderColor: 'lightgrey'
     		},
     		{
 	            label: 'Airfare',
 	            data: [airfare],
-				backgroundColor: "rgba(75, 192, 192, 0.2)",
-				hoverBackgroundColor: "rgba(75, 192, 192, .7)",
+				backgroundColor: "rgba(214, 120, 161, 0.4)",
+				hoverBackgroundColor: "rgba(214, 120, 161, .6)",
 				hoverBorderWidth: 2,
 				hoverBorderColor: 'lightgrey'
     		},
