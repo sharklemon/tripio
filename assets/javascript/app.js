@@ -55,7 +55,7 @@ $(document).ready(function() {
 
         //Updates the text results with your price option and search criteria
         $("#top-results").text("You have chosen the low-cost option, your total is: ");
-        $("#bottom-results").text("Your results reflects the lowest priced airfare, car rental, hotel listings found.");
+        $("#bottom-results").text("Your results reflect the lowest priced airfare, car rental, and hotel rates available.");
 
         //Calls the low-price calculation method and passes it FlightRequest for flight search details
         lowCalculation(FlightRequest);
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
         //Updates the text results with your price option and search criteria
         $("#top-results").text("You have chosen the medium-cost option, your total is: ");
-        $("#bottom-results").text("Your result reflects the lowest non-stop airfare found, the lowest Mid-Luxury car rental, and the lowest 3+ star hotel rates available.");
+        $("#bottom-results").text("Your results reflect the lowest non-stop airfare, mid-class to luxury car rental, and 3+ star hotel rates available.");
 
         //Calls the mid-price calculation method and passes it FlightRequest for flight search details
         midCalculation(FlightRequest);
@@ -95,7 +95,7 @@ $(document).ready(function() {
 
         //Updates the text results with your price option and search criteria
         $("#top-results").text("You have chosen the premium option, your total is: ");
-        $("#bottom-results").text("Your result reflects the lowest non-stop First/Business class airfare, the lowest luxury car rate, and the lowest 4+ star hotel rates available.");
+        $("#bottom-results").text("Your results reflect the lowest non-stop First/Business class airfare, luxury car rental, and 4+ star hotel rates available.");
 
         //Calls the high-price calculation method and passes it FlightRequest for flight search details
         highCalculation(FlightRequest);
