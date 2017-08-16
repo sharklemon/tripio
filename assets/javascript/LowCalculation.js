@@ -126,8 +126,7 @@ function lowCalculation(FlightRequest) {
             $("#bottom-results").text("Your flight result reflects the lowest airfare found, the car rental is the lowest rate available and hotel price per night is the lowest rate at a 2 star hotel.");
 
             }).done(function() {
-
-            	createVariables();
+                createVariables();
                 createChart();
 
             });

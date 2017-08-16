@@ -57,7 +57,10 @@ $("#Cheapo-cent-btn").on("click", function() {
 $("#Middler-cent-btn").on("click", function() {
 
     event.preventDefault();
-
+    $("#plane-spinner").removeClass('hidden');
+    $("#plane-spinner").addClass('show');
+    $("#price-display").removeClass('show');
+    $("#price-display").addClass('hidden');
     midCalculation(FlightRequest);
 
 });
@@ -66,7 +69,10 @@ $("#Middler-cent-btn").on("click", function() {
 $("#MadCash-cent-btn").on("click", function() {
 
     event.preventDefault();
-
+    $("#plane-spinner").removeClass('hidden');
+    $("#plane-spinner").addClass('show');
+    $("#price-display").removeClass('show');
+    $("#price-display").addClass('hidden');
     highCalculation(FlightRequest);
 
 });
