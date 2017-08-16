@@ -52,7 +52,7 @@ div{}
 }
 
 .OPTION:hover {
-    background-color: rgba(166,123,134, 0.7);
+    background-color: rgba(214, 147, 120, 0.7);
     color: white;
     border: 1px solid white;
 }
@@ -91,6 +91,7 @@ div{}
 #results-panel{
     background-size: 100% 100%;
     background-color: rgba(255, 255, 255, .8);
+    border: 7px solid white;
 }
 
 h3{
