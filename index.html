@@ -25,39 +25,29 @@
 		<!-- Jumbotron with Title -->
 	<div class="jumbotron">
 		<h1 class="text-center" id="JTtitle">trip.io</h1>
-		<h3 id="catchphrase" class="text-center">Simple trip planning to choose your destination</h3>
+		<h3 id="catchphrase" class="text-center">Simple trip planning to choose your destination <span class="glyphicon glyphicon-plane" id="catchphrase-plane"></span> </h3>
 		<p id="lastUpdate"></p>
 	</div> <!-- jumbotron class -->
 	
-	<div class="row text-center" id="maincolsrow"><!-- post-jumbotron giant row for main columns -->	    
-	    <div class="col-md-6 text-right" id="leftcol"><!--column for input --> 
-		    <div class="row input">
-			    <Label><h2>From...</h2></Label>
-				<input id="home" type='text' title='home' placeholder="IATA code e.g. EWR">
-			</div>
-		    <div class="row input">
-				<Label><h2>To...</h2></Label>
-				<input id="destination" type="text" title="arrival" placeholder="IATA code e.g. SFO"></br>
-			</div>
-	    </div><!--column for input--> 
-	    <div class="col-md-6 text-left" id="centercol"><!--column for input --> 
-		    <div class="row input">
-				<Label><h2>Departure Date</h2></Label>
-				<input id="startdate" type="date">
-			</div>
-		    <div class="row input">
-				<Label><h2>Return Date</h2></Label>
-				<input id="returndate" type="date">
-			</div>
-	    </div><!--column for input--> 
-	    <div class="col-md-12" id="rightcol">
+	<div class="row text-left" id="first-buttons"><!-- post-jumbotron giant row for first buttons-->	    
+	    <Label><h2>From...</h2></Label>
+		<input id="home" type='text' title='home' placeholder="IATA code e.g. EWR">
+		<Label><h2>To...</h2></Label>
+		<input id="destination" type="text" title="arrival" placeholder="IATA code e.g. SFO"></br>
+    </div><!-- post-jumbotron giant row for first buttons-->
+	<div class="row text-left" id="second-buttons"><!-- row for second buttons-->	    
+		<Label><h2>Departure Date</h2></Label>
+		<input id="startdate" type="date">
+		<Label><h2>Return Date</h2></Label>
+		<input id="returndate" type="date">
+    </div><!-- row for second buttons-->	
+    <div class="row text-center" id="option-row">
 	    <button class="btn btn-default OPTION" id="Cheapo-cent-btn"><h3>Cheapo</h3><p>cheapest options</p></button>
-		    <button class="btn btn-default OPTION" id="Middler-cent-btn"><h3>Mid Range</h3><p>mid range search</p></button>
-		    <button class="btn btn-default OPTION" id="MadCash-cent-btn"><h3>Mad Cash</h3><p>luxury trip</p></button>			
-	    </div>
+	    <button class="btn btn-default OPTION" id="Middler-cent-btn"><h3>Mid Range</h3><p>mid range search</p></button>
+	    <button class="btn btn-default OPTION" id="MadCash-cent-btn"><h3>Mad Cash</h3><p>luxury trip</p></button>			
 	</div><!-- post-jumbotron giant row for main columns -->
 	
-	<div class="row">	<!--row for bottom columns -->	
+	<div class="row" id="bottomrow">	<!--row for bottom columns -->	
 		<div class="col-md-12 offset-md-3" id="lowercol"><!--col for results  --> 
 			<div class="panel panel-default" id="results-panel"><!--panel for results based on their input--> 
   				<div class="panel-heading" id="results-heading">Results for this search</div>	
@@ -72,12 +62,9 @@
 					<div id="bottom-results">
 					Different price options will search using different criteria.					
 					</div>
-  				</div>
-			</div><!--panel for results based on their input--> 
-
-			<div class="panel panel-default" id="results-panel"><!--panel for comparison of itineraries--> 			
-  				<div class="panel-heading" id="compare-heading">Price Comparisons</div>	
-				<div class="panel-body" id="compare-body">
+  				</div>	
+  				<div class="panel-heading" id="compare-heading">Price Comparison Options</div>	
+				<div class="panel-body text-center" id="compare-body">
 				<button class="btn btn-default rmvCOST" id="rmvCar">Car Price Toggle</button>	
 				<button class="btn btn-default rmvCOST" id="rmvHotel">Hotel Price Toggle</button>
 				<button class="btn btn-default rmvCOST" id="rmvPlane">Airfare Price Toggle</button>
