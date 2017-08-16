@@ -25,15 +25,17 @@ function createVariables() {
 	airfareAPI = airlinePrice;
 }
 
-function createVariablestest() {
-	car = 14;
-	hotel = 51;
-	airfare = 99;	
+// function createVariablestest() {
+// 	car = 14;
+// 	hotel = 51;
+// 	airfare = 99;	
 
-	carAPI = 14;
-	hotelAPI = 51;
-	airfareAPI = 99;
-}
+// 	carAPI = 14;
+// 	hotelAPI = 51;
+// 	airfareAPI = 99;
+// }
+// createVariablestest();
+
 
 function createChart(){
 
@@ -91,54 +93,58 @@ function createChart(){
 });
 
 }
-createVariablestest();
 createChart();
 
+function update(){
+	myChart.update()
+	$("#totalPrice").text("$" + (airfare + car + hotel));
+}
+
 document.getElementById("rmvCar").onclick = function(evt){
-	console.log("in onclick");
+	console.log("in onclick car");
 	if(caron){
 		car = 0;
-		createChart(); 
+		myChart.data.datasets[0].data = [car];
 		caron = false;
-		$("#totalPrice").text("$" + (airfare + car + hotel));		
+		update();
 	}
 	else{
 		car = carAPI;
-		createChart();
+		myChart.data.datasets[0].data = [car];
 		caron=true;
-		$("#totalPrice").text("$" + (airfare + car + hotel));		
+		update();
 	}
 }
 
 document.getElementById("rmvHotel").onclick = function(evt){
-	console.log("in onclick");
+	console.log("in onclick hotel");
 	if(hotelon){
 		hotel = 0;
-		createChart(); 
+		myChart.data.datasets[1].data = [hotel];
 		hotelon = false;
-		$("#totalPrice").text("$" + (airfare + car + hotel));
+		update();
 	}
 	else{
 		hotel = hotelAPI;
-		createChart();
+		myChart.data.datasets[1].data = [hotel];
 		hotelon=true;
-		$("#totalPrice").text("$" + (airfare + car + hotel));		
+		update();
 	}
 }
 
 document.getElementById("rmvPlane").onclick = function(evt){
-	console.log("in onclick");
+	console.log("in onclick plane");
 	if(airfareon){
 		airfare = 0;
-		createChart(); 
+		myChart.data.datasets[2].data = [airfare];
 		airfareon = false;
-		$("#totalPrice").text("$" + (airfare + car + hotel));		
+		update();
 	}
 	else{
 		airfare = airfareAPI;
-		createChart();
+		myChart.data.datasets[2].data = [airfareAPI];
 		airfareon=true;
-		$("#totalPrice").text("$" + (airfare + car + hotel));		
+		update();
 	}
 }
 
