@@ -1,5 +1,3 @@
-console.log("you are in chart.js")
-
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart;
 

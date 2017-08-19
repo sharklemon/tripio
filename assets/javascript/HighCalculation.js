@@ -51,7 +51,7 @@ function highCalculation(FlightRequest) {
         }
 
         //Stores the total trip price for the return cheapest option
-        airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].baseFareTotal.replace("USD", ""));
+        airlinePrice = parseInt(response.trips.tripOption[0].pricing[0].saleTotal.replace("USD", ""));
 
         //Stores the landing time of the departing flight and the takeOff time of the returning flight
         landing = response.trips.tripOption[0].slice[0].segment[0].leg[response.trips.tripOption[0].slice[0].segment[0].leg.length-1].arrivalTime;
