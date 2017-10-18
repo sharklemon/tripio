@@ -25,6 +25,6 @@ Due to limitations in the API requests, trips may not be more than 30 days in le
 ### Tripio
 ![Main Page](./assets/images/main.png)
 ### Searching for a trip
-![Search Screenshot](.assets/images/search.png)
+![Search Screenshot](./assets/images/search.png)
 ### Price Estimate & Breakdown, car rental excluded
-![Results Screenshot](.assets/images/breakdown.png)
+![Results Screenshot](./assets/images/breakdown.png)
